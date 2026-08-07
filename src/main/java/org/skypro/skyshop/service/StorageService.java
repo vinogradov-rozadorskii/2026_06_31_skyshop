@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -39,6 +40,10 @@ public class StorageService {
         searchables.addAll(products.values());
         searchables.addAll(articles.values());
         return searchables;
+    }
+
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(products.get(id));
     }
 
     private void fillTestData() {
